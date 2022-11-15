@@ -3,7 +3,7 @@ FROM        --platform=$TARGETOS/$TARGETARCH python:3.11-slim
 LABEL       author="Phinner" maintainer="62483793+Phinner@users.noreply.github.com"
 
 RUN         apt update \
-            && apt -y install git gcc g++ ca-certificates dnsutils curl iproute2 ffmpeg procps libicu-dev python3-icu pkg-config \
+            && apt -y install git gcc g++ ca-certificates dnsutils curl iproute2 ffmpeg procps libicu-dev python3-icu pkg-config libxslt1-dev libxml2-dev \
             && useradd -m -d /home/container container
 
 USER        container
