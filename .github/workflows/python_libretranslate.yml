@@ -1,4 +1,4 @@
-name: build libretranslate
+name: build python libretranslate
 
 on:
   workflow_dispatch:
@@ -8,17 +8,17 @@ on:
     branches:
       - master
     paths:
-      - libretranslate/**
+      - python_libretranslate/**
 
 jobs:
   push:
-    name: "yolks:libretranslate_${{ matrix.tag }}"
+    name: "yolks:python_libretranslate_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         tag:
-          - '1.3.1'
+          - '3.11'
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-qemu-action@v2
@@ -35,9 +35,9 @@ jobs:
 
       - uses: docker/build-push-action@v3
         with:
-          context: ./libretranslate
-          file: ./libretranslate/${{ matrix.tag }}/Dockerfile
+          context: ./python_libretranslate
+          file: ./python_libretranslate/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/xpdustry/yolks:libretranslate_${{ matrix.tag }}
+            ghcr.io/xpdustry/yolks:python_libretranslate_${{ matrix.tag }}
