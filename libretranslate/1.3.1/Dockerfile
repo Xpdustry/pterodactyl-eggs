@@ -32,7 +32,6 @@ USER        container
 
 COPY        --from=builder --chown=1032:1032 /home/container /home/container
 WORKDIR     /home/container
-RUN         ./venv/bin/python install_models.py;
 
 COPY        ./../entrypoint.sh /entrypoint.sh
 CMD         [ "/bin/bash", "/entrypoint.sh" ]
