@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH python:3.11-slim
+FROM        --platform=$TARGETOS/$TARGETARCH python:3.11-slim-bullseye
 
 LABEL       author="Phinner" maintainer="62483793+Phinner@users.noreply.github.com"
 
